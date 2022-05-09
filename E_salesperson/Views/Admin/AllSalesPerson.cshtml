@@ -1,0 +1,243 @@
+﻿@model List<E_salesperson.Models.SalesPersonT>
+@{
+    ViewBag.Title = "AllSalesPerson";
+}
+
+
+
+<table class="table table-bordered">
+    <th>
+        <h4 class="example-output-div transition" style="color:aqua">All Sales Person</h4>
+       
+       
+        
+</th>
+    <th>
+    
+        <div style="text-align:center;padding:10px;margin-top:0">
+            <a href="~/Views/Admin/AllSalesPerson.cshtml" class="btn btn-default btn-rounded mb-4" data-toggle="modal" data-target="#modalSearchForm">
+                                               Click Here 4 Searching
+            </a>
+        </div>
+    </th>
+    <th >
+       
+     <div style="padding:10px;text-align:center;margin-top:0"> 
+         <a href="~/Views/Admin/AllSalesPerson.cshtml" class="btn btn-default btn-rounded mb-4" data-toggle="modal" data-target="#modalRegisterForm">
+            Add New SalesPerson
+         </a>
+         <br />
+         @if (ViewBag.error != null)
+         {
+             <h4 style="color:red">@ViewBag.error </h4>
+         }
+        </div>
+       
+    </th>
+
+   
+</table>
+
+
+<table class="table table-bordered" style="padding:5px">
+
+    @{
+        foreach (var mod in Model)
+        {
+            <tr>
+                <th>@mod.SalesPersonNumber</th>
+                <th>@mod.SalesPersonName</th>
+                <th>@mod.SalesPersonPassword</th>
+                <th>@mod.SalesPersonRegion</th>
+                <th>@mod.SalesPersonRegisterDay / @mod.SalesPersonRegisterMonth / @mod.SalesPersonRegisterYear</th>
+                <th> <img src="~/@mod.SalesPersonImageSrc" style=" border-radius: 50%;" width="70px" height="70px" /></th>
+                <th>  @Html.ActionLink("Edit", "EditSalesPerson", new { id = mod.SalesPersonID }) </th>
+                <th>  @Html.ActionLink("Delete", "DeleteSalesPerson", new { id = mod.SalesPersonID }) </th>
+
+            </tr>
+        }
+
+    }
+
+</table>
+
+
+
+
+<!-- model for add salesperson-->
+<div class="modal fade" id="modalRegisterForm" 
+     aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header text-center">
+                <h4 class="modal-title w-100 font-weight-bold">Add SalesPerson</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+
+           @using (Html.BeginForm("AddSalesPerson","Admin", FormMethod.Post, new { enctype = "multipart/form-data" }))
+           {
+                <div class="modal-body mx-3">
+                    <div class="md-form mb-5">
+                        <i class="fas fa-envelope prefix grey-text"></i>
+                        <input type="text" id="orangeForm-email" class="form-control validate" name="number" required>
+                        <label data-error="wrong" data-success="right" for="orangeForm-region">Number</label>
+                    </div>
+
+                    <div class="md-form mb-5">
+                        <i class="fas fa-user prefix grey-text"></i>
+                        <input type="text" id="orangeForm-name" class="form-control validate" name="name" required>
+                        <label data-error="wrong" data-success="right" for="orangeForm-name">Your name</label>
+                    </div>
+
+
+                    <div class="md-form mb-4">
+                        <i class="fas fa-lock prefix grey-text"></i>
+                        <input type="password" id="orangeForm-pass" class="form-control validate" name="pass" required>
+                        <label data-error="wrong" data-success="right" for="orangeForm-pass">password</label>
+                    </div>
+
+
+                    <div class="md-form mb-4">
+                        <i class="fas fa-lock prefix grey-text"></i>
+                        <select name="region">
+                            <option value="southern">southern</option>
+                            <option value="coastal">coastal</option>
+                            <option value="northern">northern</option>
+                            <option value="eastern">eastern</option>
+                            <option value="lebanon">lebanon</option>
+                        </select>
+                        <br />
+
+                        <label data-success="right">Region</label>
+                    </div>
+                    <br />
+
+                    <div class="md-form mb-5">
+                        <i class="fas fa-envelope prefix grey-text"></i>
+                        <select name="day">
+                            <option value="1" selected>1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                            <option value="7">7</option>
+                            <option value="8">8</option>
+                            <option value="9">9</option>
+                            <option value="10">10</option>
+                            <option value="11">11</option>
+                            <option value="12">12</option>
+                            <option value="13">13</option>
+                            <option value="14">14</option>
+                            <option value="15">15</option>
+                            <option value="16">16</option>
+                            <option value="17">17</option>
+                            <option value="18">18</option>
+                            <option value="19">19</option>
+                            <option value="20">20</option>
+                            <option value="21">21</option>
+                            <option value="22">22</option>
+                            <option value="23">23</option>
+                            <option value="24">24</option>
+                            <option value="25">25</option>
+                            <option value="26">26</option>
+                            <option value="27">27</option>
+                            <option value="28">28</option>
+                            <option value="29">29</option>
+                            <option value="30">30</option>
+                        </select>
+                        <select name="month">
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                            <option value="7">7</option>
+                            <option value="8">8</option>
+                            <option value="9">9</option>
+                            <option value="10">10</option>
+                            <option value="11">11</option>
+                            <option value="12">12</option>
+                        </select>
+                        <select name="year">
+                            <option value="2019">2019</option>
+                            <option value="2020">2020</option>
+
+                            <option value="2021">2021</option>
+                            <option value="2022">2022</option>
+                            <option value="2023">2023</option>
+                            <option value="2024">2024</option>
+                            <option value="2025">2025</option>
+                            <option value="2026">2026</option>
+                            <option value="2027">2027</option>
+                            <option value="2028">2028</option>
+                            <option value="2029">2029</option>
+                            <option value="2030">2030</option>
+                        </select>
+                        <br />
+                        <label data-error="wrong" data-success="right" for="orangeForm-region">Registeration Date</label>
+                    </div>
+                    <br />
+                    <div class="md-form mb-5">
+                        <i class="fas fa-envelope prefix grey-text"></i>
+                        <input type="file" id="orangeForm-email" name="file" required>
+                        <label data-error="wrong" data-success="right" for="orangeForm-region">Choose image</label>
+                    </div>
+
+                </div>
+                <div class="modal-footer d-flex justify-content-center">
+                    <input  type="submit" value="Add" class="btn btn-deep-orange"/>
+
+                </div>
+           }
+        </div>
+    </div>
+</div>
+
+
+<!-- model for add salesperson-->
+<div class="modal fade" id="modalSearchForm" 
+     aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header text-center">
+                <h4 class="modal-title w-100 font-weight-bold">Add SalesPerson</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+
+            @using (Html.BeginForm("Search", "Admin", FormMethod.Post, new { enctype = "multipart/form-data" }))
+            {
+                <div class="modal-body mx-3">
+                    <div class="md-form mb-5">
+                        <i class="fas fa-envelope prefix grey-text"></i>
+                        <input type="text"  id="orangeForm-email" class="form-control validate" name="name" required>
+                        <label data-error="wrong" data-success="right" for="orangeForm-region">Name</label>
+                    </div>
+
+                    <div class="md-form mb-5">
+                        <i class="fas fa-envelope prefix grey-text"></i>
+                        <input type="text" id="orangeForm-email" class="form-control validate"  name="month" required>
+                        <label data-error="wrong" data-success="right" for="orangeForm-region">Month</label>
+                    </div>
+
+                    <div class="md-form mb-5">
+                        <i class="fas fa-envelope prefix grey-text"></i>
+                        <input type="text"  id="orangeForm-email" class="form-control validate"  name="year" required>
+                        <label data-error="wrong" data-success="right" for="orangeForm-region">Year</label>
+                    </div>
+
+                   
+                </div>
+                <div class="modal-footer d-flex justify-content-center">
+                    <input type="submit" value="Search" class="btn btn-deep-orange" />
+
+                </div>
+            }
+        </div>
+    </div>
+</div>

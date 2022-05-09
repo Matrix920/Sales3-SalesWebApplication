@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="SalesPersonDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="CommissionT">
+    <Key>
+      <PropertyRef Name="CommID" />
+    </Key>
+    <Property Name="CommID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SalesPersonID" Type="int" Nullable="false" />
+    <Property Name="CommMonth" Type="int" Nullable="false" />
+    <Property Name="CommYear" Type="int" Nullable="false" />
+    <Property Name="CommSouthern" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="CommCoastal" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="CommNorthern" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="CommEastern" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="CommLebanon" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="CommTotal" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+  </EntityType>
+  <EntityType Name="SalesPersonT">
+    <Key>
+      <PropertyRef Name="SalesPersonID" />
+    </Key>
+    <Property Name="SalesPersonID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SalesPersonNumber" Type="int" Nullable="false" />
+    <Property Name="SalesPersonName" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="SalesPersonPassword" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="SalesPersonRegion" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="SalesPersonRegisterDay" Type="int" Nullable="false" />
+    <Property Name="SalesPersonRegisterMonth" Type="int" Nullable="false" />
+    <Property Name="SalesPersonRegisterYear" Type="int" Nullable="false" />
+    <Property Name="SalesPersonImageSrc" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <Association Name="FK_CommissionT_SalesPersonT">
+    <End Role="SalesPersonT" Type="Self.SalesPersonT" Multiplicity="1" />
+    <End Role="CommissionT" Type="Self.CommissionT" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SalesPersonT">
+        <PropertyRef Name="SalesPersonID" />
+      </Principal>
+      <Dependent Role="CommissionT">
+        <PropertyRef Name="SalesPersonID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="SalesPersonDBModelStoreContainer">
+    <EntitySet Name="CommissionT" EntityType="Self.CommissionT" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SalesPersonT" EntityType="Self.SalesPersonT" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_CommissionT_SalesPersonT" Association="Self.FK_CommissionT_SalesPersonT">
+      <End Role="SalesPersonT" EntitySet="SalesPersonT" />
+      <End Role="CommissionT" EntitySet="CommissionT" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

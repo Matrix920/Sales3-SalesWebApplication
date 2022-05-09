@@ -1,0 +1,116 @@
+﻿@model E_salesperson.Models.CommissionT
+
+@{
+    ViewBag.Title = "DisplayCommission";
+}
+
+<h3>Display Commission</h3>
+
+<hr />
+<table class="table-bordered" style="width:600px;border: 2px solid black;border-radius:5px;background-color:paleturquoise;">
+
+    <tbody>
+    <th>
+        <div>
+            <label style="border:outset;margin-bottom:0;text-align:center;width:300px">
+                Number  : 
+            </label>
+
+        </div>
+        <br />
+
+        <div>
+            <label style="border:outset;margin-bottom:0;text-align:center;width:300px">
+                Name   : @Model.SalesPersonT.SalesPersonName
+            </label>
+
+        </div>
+        <br />
+
+
+        <div>
+            <label style="border:outset;margin-bottom:0;text-align:center;width:300px">
+                Month : @Model.CommMonth
+            </label>
+
+        </div>
+
+        <br />
+        <div>
+            <label style="border:outset;margin-bottom:0;text-align:center;width:300px">
+                Year : @Model.CommYear
+            </label>
+        </div>
+        <br />
+
+        <div>
+            <label style="border:outset;margin-bottom:0;text-align:center;width:300px">
+                Registration Date   : @Model.SalesPersonT.SalesPersonRegisterDay / @Model.SalesPersonT.SalesPersonRegisterMonth / @Model.SalesPersonT.SalesPersonRegisterYear
+            </label>
+
+        </div>
+
+
+        <br />
+        <div>
+            <label style="border:outset;margin-bottom:0;text-align:center;width:300px">
+                Southern Region  :@Model.CommSouthern
+            </label>
+
+        </div>
+        <br />
+
+        <div>
+            <label style="border:outset;margin-bottom:0;text-align:center;width:300px">
+                Coastal Region   :@Model.CommCoastal
+            </label>
+
+        </div>
+
+        <br />
+        <div>
+            <label style="border:outset;margin-bottom:0;text-align:center;width:300px">
+                Northern Region  : @Model.CommNorthern
+            </label>
+
+        </div>
+        <br />
+
+        <div>
+            <label style="border:outset;margin-bottom:0;text-align:center;width:300px">
+                Eastern Region   : @Model.CommEastern
+            </label>
+
+        </div>
+        <br />
+        <div>
+            <label style="border:outset;margin-bottom:0;text-align:center;width:300px">
+                Lebaono Region  : @Model.CommLebanon
+            </label>
+
+        </div>
+        <br />
+        <br />
+        <div>
+            <label style="border:outset;margin-bottom:0;text-align:center;width:300px">
+                Lebaono Region  : @Model.CommTotal
+            </label>
+
+        </div>
+
+    </th>
+    <th>
+        <div style="padding-left:60px">
+            <a style="border:2px solid;border-radius:15px;color:darkblue"  href="~/SalesPerson/AddNewCommission"> Add New Commission </a>
+            <br />
+            
+        </div>
+    </th>
+
+    </tbody>
+</table>
+
+
+
+   
+

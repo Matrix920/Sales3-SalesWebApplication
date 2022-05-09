@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="SalesPersonDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="CommissionT">
+    <Key>
+      <PropertyRef Name="CommID" />
+    </Key>
+    <Property Name="CommID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="SalesPersonID" Type="Int32" Nullable="false" />
+    <Property Name="CommMonth" Type="Int32" Nullable="false" />
+    <Property Name="CommYear" Type="Int32" Nullable="false" />
+    <Property Name="CommSouthern" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+    <Property Name="CommCoastal" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+    <Property Name="CommNorthern" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+    <Property Name="CommEastern" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+    <Property Name="CommLebanon" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+    <Property Name="CommTotal" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+    <NavigationProperty Name="SalesPersonT" Relationship="Self.FK_CommissionT_SalesPersonT" FromRole="CommissionT" ToRole="SalesPersonT" />
+  </EntityType>
+  <EntityType Name="SalesPersonT">
+    <Key>
+      <PropertyRef Name="SalesPersonID" />
+    </Key>
+    <Property Name="SalesPersonID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="SalesPersonNumber" Type="Int32" Nullable="false" />
+    <Property Name="SalesPersonName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="SalesPersonPassword" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="SalesPersonRegion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="SalesPersonRegisterDay" Type="Int32" Nullable="false" />
+    <Property Name="SalesPersonRegisterMonth" Type="Int32" Nullable="false" />
+    <Property Name="SalesPersonRegisterYear" Type="Int32" Nullable="false" />
+    <Property Name="SalesPersonImageSrc" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="CommissionT" Relationship="Self.FK_CommissionT_SalesPersonT" FromRole="SalesPersonT" ToRole="CommissionT" />
+  </EntityType>
+  <Association Name="FK_CommissionT_SalesPersonT">
+    <End Role="SalesPersonT" Type="Self.SalesPersonT" Multiplicity="1" />
+    <End Role="CommissionT" Type="Self.CommissionT" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SalesPersonT">
+        <PropertyRef Name="SalesPersonID" />
+      </Principal>
+      <Dependent Role="CommissionT">
+        <PropertyRef Name="SalesPersonID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="SalesPersonDBEntitiesE" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="CommissionT" EntityType="Self.CommissionT" />
+    <EntitySet Name="SalesPersonT" EntityType="Self.SalesPersonT" />
+    <AssociationSet Name="FK_CommissionT_SalesPersonT" Association="Self.FK_CommissionT_SalesPersonT">
+      <End Role="SalesPersonT" EntitySet="SalesPersonT" />
+      <End Role="CommissionT" EntitySet="CommissionT" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

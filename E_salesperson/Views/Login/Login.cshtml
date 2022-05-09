@@ -1,0 +1,37 @@
+﻿
+@{
+    ViewBag.Title = "Login";
+}
+
+<h3 class="h3">Welcom in E_salesperson</h3>
+<hr />
+@if(ViewBag.error != null){
+    @ViewBag.error
+}
+<hr />
+<form  method="post" action="">
+    <div>
+        <label style="border:outset;margin-bottom:0;text-align:center;width:72px" >
+            Name 
+        </label>
+        <input style="margin-top:0" class="form-control" type="text" name="username" />
+       
+    </div>
+    <br />
+
+    <div>
+        <label style="border:outset;margin-bottom:0;text-align:center;width:72px">
+            Password
+        </label>
+        <input style="margin-top:0" class="form-control" type="password" name="password" />
+       
+    </div>
+    <br />
+    <div>
+        <input style="margin-top:0;width:60px" class="btn-group-sm" type="submit" value="Login" />
+
+    </div>
+
+</form>
+
+

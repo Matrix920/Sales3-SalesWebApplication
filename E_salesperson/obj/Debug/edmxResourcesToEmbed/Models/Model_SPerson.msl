@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="SalesPersonDBModelStoreContainer" CdmEntityContainer="SalesPersonDBEntitiesE">
+    <EntitySetMapping Name="CommissionT">
+      <EntityTypeMapping TypeName="SalesPersonDBModel.CommissionT">
+        <MappingFragment StoreEntitySet="CommissionT">
+          <ScalarProperty Name="CommID" ColumnName="CommID" />
+          <ScalarProperty Name="SalesPersonID" ColumnName="SalesPersonID" />
+          <ScalarProperty Name="CommMonth" ColumnName="CommMonth" />
+          <ScalarProperty Name="CommYear" ColumnName="CommYear" />
+          <ScalarProperty Name="CommSouthern" ColumnName="CommSouthern" />
+          <ScalarProperty Name="CommCoastal" ColumnName="CommCoastal" />
+          <ScalarProperty Name="CommNorthern" ColumnName="CommNorthern" />
+          <ScalarProperty Name="CommEastern" ColumnName="CommEastern" />
+          <ScalarProperty Name="CommLebanon" ColumnName="CommLebanon" />
+          <ScalarProperty Name="CommTotal" ColumnName="CommTotal" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SalesPersonT">
+      <EntityTypeMapping TypeName="SalesPersonDBModel.SalesPersonT">
+        <MappingFragment StoreEntitySet="SalesPersonT">
+          <ScalarProperty Name="SalesPersonID" ColumnName="SalesPersonID" />
+          <ScalarProperty Name="SalesPersonNumber" ColumnName="SalesPersonNumber" />
+          <ScalarProperty Name="SalesPersonName" ColumnName="SalesPersonName" />
+          <ScalarProperty Name="SalesPersonPassword" ColumnName="SalesPersonPassword" />
+          <ScalarProperty Name="SalesPersonRegion" ColumnName="SalesPersonRegion" />
+          <ScalarProperty Name="SalesPersonRegisterDay" ColumnName="SalesPersonRegisterDay" />
+          <ScalarProperty Name="SalesPersonRegisterMonth" ColumnName="SalesPersonRegisterMonth" />
+          <ScalarProperty Name="SalesPersonRegisterYear" ColumnName="SalesPersonRegisterYear" />
+          <ScalarProperty Name="SalesPersonImageSrc" ColumnName="SalesPersonImageSrc" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

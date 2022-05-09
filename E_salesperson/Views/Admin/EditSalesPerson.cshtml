@@ -1,0 +1,93 @@
+﻿@model E_salesperson.Models.SalesPersonT
+
+@{
+    ViewBag.Title = "EditSalesPerson";
+}
+
+<h2>EditSalesPerson</h2>
+<hr />
+
+
+<table>
+    <th>
+        <div class="text-center" style="padding:10px">
+            SalesPerson Number : @Model.SalesPersonNumber
+            <br /><br /><br />
+            Registration  Date : @Model.SalesPersonRegisterDay / @Model.SalesPersonRegisterMonth / @Model.SalesPersonRegisterYear
+            <br /><br /><br />
+            <img src="~/@Model.SalesPersonImageSrc" width="75px" height="75px" />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            
+
+            <a  class="btn btn-success" href="~/Admin/AllSalesPerson">Cancel</a>
+        </div>
+
+        
+</th>
+
+    <th>
+
+
+        
+@using (Html.BeginForm("EditSalesPerson", "Admin", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+           <input type="hidden" name="id" value="@Model.SalesPersonID" />
+            <div>
+                <label style="border:outset;margin-bottom:0;text-align:center;width:150px">
+                    Name
+                </label>
+                <input style="margin-top:0" class="form-control" type="text" name="username" value=" @Model.SalesPersonName" />
+
+            </div>
+
+            <br />
+            <div>
+                <label style="border:outset;margin-bottom:0;text-align:center;width:150px">
+                    Password
+                </label>
+                <input style="margin-top:0" class="form-control" type="text" name="password" value=" @Model.SalesPersonPassword" />
+
+            </div>
+
+
+
+            <br />
+            <div>
+                <label style="border:outset;margin-bottom:0;text-align:center;width:150px">
+                    Region : @Model.SalesPersonRegion
+                </label>
+                <br />
+                Choose new  region :
+                <div style="margin-top:5px;">    
+                    <input type="radio" name="region" value="@Model.SalesPersonRegion" hidden checked>
+                    <input type="radio" name="region" value="southern"> Southern
+                    <input type="radio" name="region" value="coastal"> Coastal
+                    <input type="radio" name="region" value="northern"> Northern
+                    <input type="radio" name="region" value="eastern"> Eastern
+                    <input type="radio" name="region" value="lebanon"> Lebanon
+                </div>
+            </div>
+            <br />
+            <div>
+                <label style="border:outset;margin-bottom:0;text-align:center;width:150px">
+                    Choose New Image
+                </label>
+                <input type="file" name="file" />
+            </div>
+            <br />
+
+            <div>
+                <input style="margin-top:0;width:90px"  class="btn btn-success" type="submit" value="Save " />
+         
+               </div>
+
+}
+    </th>
+
+</table>

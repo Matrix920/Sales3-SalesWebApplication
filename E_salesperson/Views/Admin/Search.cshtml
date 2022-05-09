@@ -1,0 +1,98 @@
+﻿@model IEnumerable<E_salesperson.Models.CommissionT>
+
+@{
+    ViewBag.Title = "Search";
+}
+
+<h2>Search</h2>
+
+<table class="table">
+    <th>
+        <div>
+            @Html.ActionLink("Back", "AllSalesPerson", "Admin")
+        </div>
+    </th>
+    <th>
+        <div style="text-align:right">
+            @Html.ActionLink("Logout", "Login", "Login")
+        </div>
+    </th>
+
+</table>
+
+
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.SalesPersonT.SalesPersonNumber)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SalesPersonT.SalesPersonName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CommMonth)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CommYear)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CommSouthern)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CommCoastal)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CommNorthern)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CommEastern)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CommLebanon)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CommTotal)
+        </th>
+       
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.SalesPersonT.SalesPersonNumber)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SalesPersonT.SalesPersonName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CommMonth)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CommYear)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CommSouthern)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CommCoastal)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CommNorthern)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CommEastern)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CommLebanon)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CommTotal)
+        </td>
+      
+        
+    </tr>
+}
+
+</table>

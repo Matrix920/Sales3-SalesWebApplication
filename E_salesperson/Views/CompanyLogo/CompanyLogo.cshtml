@@ -1,0 +1,29 @@
+﻿
+@{
+    ViewBag.Title = "CompanyLogo";
+}
+<div style="text-align:center">
+    <h3>CompanyLogo</h3>
+    <hr />
+    @if ((bool)Session["admin"] == true)
+    { <a href="~/Admin/AllSalesPerson">
+        <img src="~/Image/logo.jpg" style="border-radius:50%;border:groove" width="250px" height="250px" />
+        <br /><br />
+        <label>Syrian Company</label>
+
+
+    </a>
+    }
+    else
+    {<a href="~/SalesPerson/AddNewCommission">
+        <img src="~/Image/logo.jpg" style="border-radius:50%; border:groove" width="250px" height="250px" />
+        <br /><br />
+        <label>Syrian Company</label>
+
+
+    </a>
+
+    }
+
+
+</div>

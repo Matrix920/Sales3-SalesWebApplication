@@ -1,0 +1,103 @@
+﻿@model E_salesperson.Models.SalesPersonT
+
+@{
+    ViewBag.Title = "AddNewCommission";
+}
+
+<h3 style="text-align:center">Add New Commission</h3>
+
+@if (ViewBag.error != null)
+{<div style="color:orangered">@ViewBag.error  </div> }
+<br />
+
+
+<table>
+<th>
+    <div class="text-center" style="padding:10px">
+        SalesPerson Number : @Model.SalesPersonNumber
+        <br /><br /><br />
+        SalesdPerson Name : @Model.SalesPersonName
+        <br /><br /><br />
+        SalesdPerson Region : @Model.SalesPersonRegion
+        <br /><br /><br />
+        <img src="~/@Model.SalesPersonImageSrc" style="border-radius:50%;" width="125" height="125" />
+    </div>
+    
+
+</th>
+
+<th>
+
+        <form method="post" action="">
+
+            <input type="hidden" name="id" value="@Model.SalesPersonID" />
+            <input type="hidden" name="region" value="@Model.SalesPersonRegion" />
+            <div>
+                <label style="border:outset;margin-bottom:0;text-align:center;width:150px">
+                    Month 
+                </label>
+                <input style="margin-top:0" class="form-control" type="text" name="month"  required/>
+
+            </div>
+
+            <div style="margin-top:6px">
+                <label style="border:outset;margin-bottom:0;text-align:center;width:150px">
+                    Year 
+                </label>
+                <input style="margin-top:0" class="form-control" type="text" name="year" required/>
+
+            </div>
+
+            <div style="margin-top:6px">
+                <label style="border:outset;margin-bottom:0;text-align:center;width:150px">
+                    Southern Region
+                </label>
+                <input style="margin-top:0" class="form-control" type="text" name="southern" required/>
+
+            </div>
+        
+
+            <div style="margin-top:6px">
+                <label style="border:outset;margin-bottom:0;text-align:center;width:150px">
+                    Coastal Region
+                </label>
+                <input style="margin-top:0" class="form-control" type="text" name="coastal" required/>
+
+            </div>
+
+            <div style="margin-top:6px">
+                <label style="border:outset;margin-bottom:0;text-align:center;width:150px">
+                    Northern Region
+                </label>
+                <input style="margin-top:0" class="form-control" type="text" name="northern" required/>
+
+            </div>
+            
+            <div style="margin-top:6px">
+                <label style="border:outset;margin-bottom:0;text-align:center;width:150px">
+                    Eastern Region
+                </label>
+                <input style="margin-top:0" class="form-control" type="text" name="eastern" required/>
+
+            </div>
+            
+            <div style="margin-top:6px">
+                <label style="border:outset;margin-bottom:0;text-align:center;width:150px">
+                    Lebaono Region
+                </label>
+                <input style="margin-top:0" class="form-control" type="text" name="lebanon" required/>
+
+            </div>
+            <br />
+
+
+            <div>
+                <input style="margin-top:0;width:90px" class="btn-group-sm" type="submit" value="Add Sales" />
+
+            </div>
+
+        </form>
+        
+    </th>
+
+</table>
